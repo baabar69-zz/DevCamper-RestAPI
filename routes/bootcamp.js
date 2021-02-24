@@ -6,7 +6,12 @@ const {
   getSingleBootcamps,
   updateBootcamp,
 } = require('../controllers/Bootcamp')
+
+const coursRouter =  require('./course')
+
 const router = express.Router()
+
+router.use('/:bootcampId/courses' , coursRouter)
 
 router.route('/').get(getBootcamps).post(createBootcamps)
 router
