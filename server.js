@@ -6,6 +6,7 @@ const errorHandler = require('./middlewares/error')
 const connectDB = require('./config/db')
 // const logger = require('./middlewares/logger')
 const bootcamps = require('./routes/bootcamp')
+const courses = require('./routes/course')
 
 // Load env vars
 dotenv.config({ path: `./config/config.env` })
@@ -18,6 +19,7 @@ app.use(express.json())
 if (process.env.NODE_ENV === 'development') app.use(morgan('dev'))
 
 app.use('/api/v1/bootcamps', bootcamps)
+app.use('/api/v1/courses', courses)
 
 app.use(errorHandler)
 
